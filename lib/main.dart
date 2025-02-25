@@ -1,43 +1,65 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MiImagen());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiImagen extends StatelessWidget {
+  const MiImagen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text("Mis imagenes",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontStyle: FontStyle.italic,
+                  color: Color(0xff233538),
+                )),
+            backgroundColor: const Color(0xff47fff7),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('Roberto Gaytan Mendoza Mat:22308051281202',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                      color: Color(0xff002fca),
+                    )),
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
-    );
+                Image.network(
+                  'https://raw.githubusercontent.com/RobertoGaytanM8/Imagenes-para-APP-flutter/refs/heads/main/perrito1.jpg',
+                  width: 200, // Ancho opcional
+                  height: 200, // Alto opcional
+                ),
+                const SizedBox(height: 20),
+                // Espacio entre las imágenes
+                const Text('Perrito Chistoso en GitHub',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.black,
+                    )),
+                Image.network(
+                  'https://raw.githubusercontent.com/RobertoGaytanM8/Imagenes-para-APP-flutter/refs/heads/main/perropepsi.jpg',
+                  width: 200, // Ancho opcional
+                  height: 200, // Alto opcional
+                ),
+                const SizedBox(height: 20),
+                // Espacio entre las imágenes
+                //
+                const Text('Perrito tomando Pepsi en GitHub',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.black,
+                    )),
+              ],
+            ),
+          )),
+    ); // Material App
   }
 }
